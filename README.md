@@ -97,3 +97,44 @@ php artisan migrate:fresh --seed
 
 # 5. Kompilasi aset frontend
 npm run build
+
+3. Konfigurasi Lingkungan (.env)Pastikan variabel utama pada .env telah disesuaikan:Code snippetAPP_NAME="Kantin Multi-Tenant"
+APP_ENV=local
+APP_URL=http://localhost:8000
+APP_LOCALE=id
+APP_TIMEZONE=UTC
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=kantin_multi_tenant
+DB_USERNAME=root
+DB_PASSWORD=ServBay.dev
+
+SESSION_DRIVER=redis
+CACHE_STORE=redis
+QUEUE_CONNECTION=redis
+
+REDIS_CLIENT=phpredis
+REDIS_HOST=127.0.0.1
+REDIS_PORT=6379
+
+BROADCAST_CONNECTION=reverb
+REVERB_APP_ID=123456
+REVERB_APP_KEY=kantinreverbkey
+REVERB_APP_SECRET=kantinreverbsecret
+REVERB_HOST="localhost"
+REVERB_PORT=8080
+REVERB_SCHEME=http
+4. Menjalankan AplikasiJalankan perintah berikut pada terminal terpisah saat pengembangan:HTTP Server (Laravel):Bashphp artisan serve
+Akses di browser: http://localhost:8000WebSocket Server (Laravel Reverb):Bashphp artisan reverb:start
+Vite Hot-Reload (Frontend Dev):Bashnpm run dev
+5. Quality Gate & TestingJalankan seluruh pengujian berikut sebelum commit:Bash# Uji Test PHPUnit / Feature Tests
+php artisan test
+
+# Format standar kode (Laravel Pint)
+./vendor/bin/pint --test
+
+# Uji build aset frontend
+npm run build
+6. TroubleshootingGejala ErrorKemungkinan PenyebabSolusicould not find driverEkstensi pdo_mysql belum aktif di PHPAktifkan extension=pdo_mysql di php.ini lalu restart PHPPort 3306 / 6379 bentrokAda service lokal lain yang masih aktifMatikan service lama atau ganti port di .envVite manifest not foundAset frontend belum dibangunJalankan npm install && npm run buildProcessTimedOutException saat install broadcastingBatas waktu unduh npm terlewatiPasang manual: npm install --save-dev laravel-echo pusher-js
