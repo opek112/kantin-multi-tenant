@@ -38,9 +38,15 @@ php artisan migrate:fresh --seed
 
 # 5. Kompilasi aset frontend
 npm run build
+```
 
-3. Konfigurasi Lingkungan (.env)
-Pastikan variabel utama pada .env telah disesuaikan:
+---
+
+## 3. Konfigurasi Lingkungan (`.env`)
+
+Pastikan variabel utama pada `.env` telah disesuaikan:
+
+```env
 APP_NAME="Kantin Multi-Tenant"
 APP_ENV=local
 APP_URL=http://localhost:8000
@@ -69,18 +75,37 @@ REVERB_APP_SECRET=kantinreverbsecret
 REVERB_HOST="localhost"
 REVERB_PORT=8080
 REVERB_SCHEME=http
+```
 
-4. Menjalankan Aplikasi
+---
+
+## 4. Menjalankan Aplikasi
+
 Jalankan perintah berikut pada terminal terpisah saat pengembangan:
-HTTP Server (Laravel):
-php artisan serve
-WebSocket Server (Laravel Reverb):
-php artisan reverb:start
-Vite Hot-Reload (Frontend Dev):
-npm run dev
 
-5. Quality Gate & Testing
+* **HTTP Server (Laravel)**:
+  ```bash
+  php artisan serve
+  ```
+  Akses di browser: `http://localhost:8000`
+
+* **WebSocket Server (Laravel Reverb)**:
+  ```bash
+  php artisan reverb:start
+  ```
+
+* **Vite Hot-Reload (Frontend Dev)**:
+  ```bash
+  npm run dev
+  ```
+
+---
+
+## 5. Quality Gate & Testing
+
 Jalankan seluruh pengujian berikut sebelum commit:
+
+```bash
 # Uji Test PHPUnit / Feature Tests
 php artisan test
 
@@ -89,9 +114,15 @@ php artisan test
 
 # Uji build aset frontend
 npm run build
+```
 
-6. Troubleshooting
-Gejala Error             Kemungkinan Penyebab                         Solusi
-could not find driver |Ekstensi pdo_mysql belum aktif di PHP   |Aktifkan extension=pdo_mysql di php.ini lalu restart PHP
-Port 3306 / 6379 bentrok  |Ada service lokal lain yang masih aktif  |Matikan service lama atau ganti port di .env
-Vite manifest not found |Aset frontend belum dibangun     |Jalankan npm install && npm run build ProcessTimedOutException saat install broadcasting   |Batas waktu unduh npm terlewati  |Pasang manual: npm install --save-dev laravel-echo pusher-js
+---
+
+## 6. Troubleshooting
+
+| Gejala Error | Kemungkinan Penyebab | Solusi |
+| :--- | :--- | :--- |
+| `could not find driver` | Ekstensi `pdo_mysql` belum aktif di PHP | Aktifkan `extension=pdo_mysql` di `php.ini` lalu restart PHP |
+| Port `3306` / `6379` bentrok | Ada service lokal lain yang masih aktif | Matikan service lama atau ganti port di `.env` |
+| `Vite manifest not found` | Aset frontend belum dibangun | Jalankan `npm install && npm run build` |
+| `ProcessTimedOutException` saat install broadcasting | Batas waktu unduh npm terlewati | Pasang manual: `npm install --save-dev laravel-echo pusher-js` |
