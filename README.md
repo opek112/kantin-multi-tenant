@@ -56,3 +56,44 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+# Kantin Multi-Tenant — Laravel 13
+
+Aplikasi sistem kantin multi-tenant berbasis Laravel 13, Livewire 4, MariaDB, Redis, dan Laravel Reverb untuk interaksi realtime.
+
+---
+
+## 1. System Requirements
+
+* **PHP**: `>= 8.3` (Disarankan PHP 8.4)
+  * Ekstensi: `pdo_mysql`, `mbstring`, `openssl`, `ctype`, `curl`, `fileinfo`, `xml`, `tokenizer`
+* **Composer**: `>= 2.2`
+* **Node.js**: `>= 20.x` & **NPM**: `>= 10.x`
+* **Database**: MariaDB `>= 10.11` (Port `3306`)
+* **In-Memory Cache & Queue**: Redis Server (Port `6379`)
+* **Git**: `>= 2.x`
+
+---
+
+## 2. Setup & Instalasi Proyek
+
+Langkah-langkah mereplikasi lingkungan proyek:
+
+```bash
+# 1. Clone repository
+git clone [https://github.com/](https://github.com/)<USERNAME>/kantin-multi-tenant.git
+cd kantin-multi-tenant
+
+# 2. Pasang dependensi PHP & JavaScript
+composer install
+npm install
+
+# 3. Buat file environment
+cp .env.example .env
+php artisan key:generate
+
+# 4. Jalankan migrasi dan seeder database
+php artisan migrate:fresh --seed
+
+# 5. Kompilasi aset frontend
+npm run build
