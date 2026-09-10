@@ -1,11 +1,17 @@
 <?php
 
+<<<<<<< HEAD
 use App\Http\Middleware\EnsureUserHasRole;
+=======
+>>>>>>> 27c9e432bcd1ad8b785d83f20af17c5912347666
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Route;
+=======
+>>>>>>> 27c9e432bcd1ad8b785d83f20af17c5912347666
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -13,6 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         channels: __DIR__.'/../routes/channels.php',
         health: '/up',
+<<<<<<< HEAD
         then: function (): void {
             // Konteks pelanggan (publik, anonim). Model binding canteen di-wire pada Modul 4.
             Route::middleware('web')
@@ -37,6 +44,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'role' => EnsureUserHasRole::class,
         ]);
+=======
+    )
+    ->withMiddleware(function (Middleware $middleware): void {
+        //
+>>>>>>> 27c9e432bcd1ad8b785d83f20af17c5912347666
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(

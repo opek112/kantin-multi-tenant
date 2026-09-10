@@ -5,21 +5,34 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Hash;
+=======
+>>>>>>> 27c9e432bcd1ad8b785d83f20af17c5912347666
 
 class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
 
     /**
+<<<<<<< HEAD
      * Data demo deterministik. Password demo bersifat lokal (bukan secret produksi).
      */
     public function run(): void
     {
+=======
+     * Seed the application's database.
+     */
+    public function run(): void
+    {
+        // User::factory(10)->create();
+
+>>>>>>> 27c9e432bcd1ad8b785d83f20af17c5912347666
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+<<<<<<< HEAD
 
         // Akun demo per konteks (Modul 2). Role diformalkan pada Modul 4–5.
         $demo = [
@@ -42,5 +55,7 @@ class DatabaseSeeder extends Seeder
         }
 
         $this->call(DemoCanteenSeeder::class);
+=======
+>>>>>>> 27c9e432bcd1ad8b785d83f20af17c5912347666
     }
 }

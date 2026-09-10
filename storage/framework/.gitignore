@@ -2,6 +2,10 @@ compiled.php
 config.php
 down
 events.scanned.php
+<<<<<<< HEAD
+=======
+lsp-*.php
+>>>>>>> 27c9e432bcd1ad8b785d83f20af17c5912347666
 maintenance.php
 routes.php
 routes.scanned.php

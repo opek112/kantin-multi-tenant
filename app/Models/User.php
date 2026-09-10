@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+<<<<<<< HEAD
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Contracts\PasskeyUser;
@@ -36,6 +37,15 @@ class User extends Authenticatable implements PasskeyUser
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable, PasskeyAuthenticatable, TwoFactorAuthenticatable;
+=======
+
+#[Fillable(['name', 'email', 'password'])]
+#[Hidden(['password', 'remember_token'])]
+class User extends Authenticatable
+{
+    /** @use HasFactory<UserFactory> */
+    use HasFactory, Notifiable;
+>>>>>>> 27c9e432bcd1ad8b785d83f20af17c5912347666
 
     /**
      * Get the attributes that should be cast.
@@ -49,6 +59,7 @@ class User extends Authenticatable implements PasskeyUser
             'password' => 'hashed',
         ];
     }
+<<<<<<< HEAD
 
     /**
      * Get the user's initials
@@ -85,4 +96,6 @@ class User extends Authenticatable implements PasskeyUser
     {
         return $this->status === 'active';
     }
+=======
+>>>>>>> 27c9e432bcd1ad8b785d83f20af17c5912347666
 }
