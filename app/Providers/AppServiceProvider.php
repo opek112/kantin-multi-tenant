@@ -2,15 +2,12 @@
 
 namespace App\Providers;
 
-<<<<<<< HEAD
+use App\Support\Tenancy\TenantContext;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
-=======
-use Illuminate\Support\ServiceProvider;
->>>>>>> 27c9e432bcd1ad8b785d83f20af17c5912347666
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,7 +16,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // Scoped: satu instance per request/job; direset di lifecycle berikutnya (tidak bocor).
+        $this->app->scoped(
+            TenantContext::class,
+            fn (): TenantContext => new TenantContext,
+        );
     }
 
     /**
@@ -27,7 +28,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-<<<<<<< HEAD
         $this->configureDefaults();
     }
 
@@ -51,8 +51,5 @@ class AppServiceProvider extends ServiceProvider
                 ->uncompromised()
             : null,
         );
-=======
-        //
->>>>>>> 27c9e432bcd1ad8b785d83f20af17c5912347666
     }
 }

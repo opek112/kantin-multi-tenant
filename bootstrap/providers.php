@@ -1,6 +1,5 @@
 <?php
 
-<<<<<<< HEAD
 use App\Modules\Admin\AdminServiceProvider;
 use App\Modules\Catalog\CatalogServiceProvider;
 use App\Modules\Kitchen\KitchenServiceProvider;
@@ -20,10 +19,4 @@ return [
     PaymentsServiceProvider::class,
     KitchenServiceProvider::class,
     ReportingServiceProvider::class,
-=======
-use App\Providers\AppServiceProvider;
-
-return [
-    AppServiceProvider::class,
->>>>>>> 27c9e432bcd1ad8b785d83f20af17c5912347666
 ];

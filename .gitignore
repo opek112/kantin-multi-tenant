@@ -1,22 +1,4 @@
-<<<<<<< HEAD
 /.phpunit.cache
-=======
-*.log
-.DS_Store
-.env
-.env.backup
-.env.production
-.phpactor.json
-.phpunit.result.cache
-/.codex
-/.cursor/
-/.idea
-/.nova
-/.phpunit.cache
-/.vscode
-/.zed
-/auth.json
->>>>>>> 27c9e432bcd1ad8b785d83f20af17c5912347666
 /node_modules
 /public/build
 /public/fonts-manifest.dev.json
@@ -25,7 +7,6 @@
 /storage/*.key
 /storage/pail
 /vendor
-<<<<<<< HEAD
 .env
 .env.backup
 .env.production
@@ -43,9 +24,3 @@ yarn-error.log
 /.zed
 .env.testing
 .DS_Store
-=======
-_ide_helper.php
-Homestead.json
-Homestead.yaml
-Thumbs.db
->>>>>>> 27c9e432bcd1ad8b785d83f20af17c5912347666

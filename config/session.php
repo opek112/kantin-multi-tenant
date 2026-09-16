@@ -129,11 +129,7 @@ return [
 
     'cookie' => env(
         'SESSION_COOKIE',
-<<<<<<< HEAD
         Str::slug((string) env('APP_NAME', 'laravel')).'-session',
-=======
-        Str::slug((string) env('APP_NAME', 'laravel')).'-session'
->>>>>>> 27c9e432bcd1ad8b785d83f20af17c5912347666
     ),
 
     /*
